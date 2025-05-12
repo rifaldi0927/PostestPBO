@@ -1,0 +1,72 @@
+1. Program Dimulai (main())
+Program berjalan dan masuk ke main().
+
+Menampilkan menu utama kepada pengguna dengan pilihan seperti:
+
+Tambah Pelanggan
+
+Lihat Daftar Pelanggan
+
+Update Data Pelanggan
+
+Hapus Pelanggan
+
+Total Pelanggan
+
+Keluar dari aplikasi
+
+2. Pengguna Memilih Opsi
+Program menunggu input angka dari pengguna dengan metode getValidIntegerInput().
+
+Jika input bukan angka, maka muncul pesan error dan meminta input ulang (Exception Handling).
+
+Jika input angka valid, program menjalankan switch-case untuk memilih fitur.
+
+3. Tambah Pelanggan (tambahPelanggan())
+Pengguna memasukkan nama dan alamat.
+
+Memasukkan nomor telepon dan jumlah galon (Validasi angka dilakukan).
+
+Memilih jenis pelanggan (Reguler atau Premium).
+
+Membuat objek pelanggan baru (PelangganReguler atau PelangganPremium).
+
+Objek disimpan di ArrayList daftarPelanggan.
+
+Static totalPelanggan bertambah.
+
+4. Lihat Daftar Pelanggan (lihatPelanggan())
+Program menampilkan semua pelanggan dalam daftar daftarPelanggan.
+
+Setiap pelanggan akan memanggil tampilkanData(), yang berasal dari Interface PelangganInterface.
+
+Jika daftar kosong, muncul pesan "Belum ada pelanggan."
+
+5. Update Data Pelanggan (updatePelanggan())
+Menampilkan daftar pelanggan.
+
+Pengguna memilih pelanggan yang ingin diperbarui.
+
+Memasukkan nomor telepon baru dan jumlah galon baru (Validasi angka dilakukan).
+
+Data pelanggan diperbarui.
+
+6. Hapus Pelanggan (hapusPelanggan())
+Menampilkan daftar pelanggan.
+
+Pengguna memilih pelanggan yang ingin dihapus.
+
+Static totalPelanggan berkurang.
+
+Pelanggan dihapus dari daftarPelanggan.
+
+7. Menampilkan Total Pelanggan (totalPelanggan)
+Program menampilkan jumlah pelanggan yang tersimpan menggunakan static totalPelanggan.
+
+8. Keluar dari Program
+Jika pengguna memilih opsi "Keluar", program akan berhenti dan kembali ke sistem.
+
+Konsep OOP yang Diterapkan dalam Kode
+✔ Encapsulation → Data pelanggan tidak bisa diakses langsung, hanya melalui metode getter & setter. ✔ Inheritance → PelangganReguler dan PelangganPremium mewarisi PelangganBase. ✔ Polimorfisme → jenisPelanggan() di-override oleh subclass. ✔ Abstract Class → PelangganBase tidak bisa langsung dibuat objek, hanya subclass bisa menggunakannya. ✔ Final Keyword → nama dan alamat tidak bisa diubah setelah dibuat. ✔ Interface → PelangganInterface digunakan untuk memastikan semua pelanggan memiliki tampilkanData(). ✔ Static Keyword → totalPelanggan digunakan untuk menghitung jumlah pelanggan tanpa perlu membuat objek. ✔ Exception Handling → getValidIntegerInput() mencegah error jika pengguna memasukkan input yang tidak valid.
+
+🚀 Kesimpulan: Program ini bekerja secara modular dan aman, mengikuti konsep OOP dengan baik, serta memiliki error handling yang mencegah input tidak valid. Kalau masih ada yang ingin diperbaiki atau dikembangkan

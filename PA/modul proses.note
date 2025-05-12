@@ -1,0 +1,213 @@
+1. INHERITANCE (Pewarisan)
+📌 Cara kerja:
+
+Inheritance memungkinkan satu kelas mewarisi atribut dan metode dari kelas lain.
+
+PelangganReguler dan PelangganPremium mewarisi semua atribut dan metode dari PelangganBase.
+
+Ini berarti mereka bisa menggunakan tampilkanData() tanpa harus menulis ulang kode.
+
+📌 Kode yang menerapkan Inheritance:
+
+java
+class PelangganReguler extends PelangganBase {
+    @Override
+    void jenisPelanggan() {
+        System.out.println("Jenis: Pelanggan Reguler");
+    }
+}
+
+class PelangganPremium extends PelangganBase {
+    @Override
+    void jenisPelanggan() {
+        System.out.println("Jenis: Pelanggan Premium");
+    }
+}
+✔ Letak dalam kode: Barisan saat mendefinisikan PelangganReguler dan PelangganPremium.
+
+2. ACCESS MODIFIER (Pengatur Akses)
+📌 Cara kerja:
+
+Menentukan siapa yang bisa mengakses variabel dan metode dalam class.
+
+private → Hanya bisa diakses dalam kelas itu sendiri.
+
+public → Bisa diakses dari luar kelas.
+
+📌 Kode yang menerapkan Access Modifier:
+
+java
+private int nomorTelepon;
+private int jumlahGalon;
+
+public int getNomorTelepon() {
+    return nomorTelepon;
+}
+
+public void setNomorTelepon(int nomorTelepon) {
+    this.nomorTelepon = nomorTelepon;
+}
+✔ Letak dalam kode: PelangganBase saat mendefinisikan atribut dan metode getter/setter.
+
+3. ENCAPSULATION (Membungkus Data)
+📌 Cara kerja:
+
+Menjaga keamanan data pelanggan dengan cara membatasi akses langsung ke variabel.
+
+Pengguna tidak bisa langsung mengubah nomorTelepon atau jumlahGalon, mereka harus menggunakan metode setter.
+
+📌 Kode yang menerapkan Encapsulation:
+
+java
+private int nomorTelepon;
+private int jumlahGalon;
+
+// Getter dan Setter untuk mengakses data dengan aman
+public int getNomorTelepon() {
+    return nomorTelepon;
+}
+
+public void setNomorTelepon(int nomorTelepon) {
+    this.nomorTelepon = nomorTelepon;
+}
+✔ Letak dalam kode: Di dalam PelangganBase.
+
+4. CLASS, OBJECT, DAN CONSTRUCTOR
+📌 Cara kerja:
+
+Class adalah cetakan untuk membuat objek.
+
+Object dibuat dari class dan menyimpan data pelanggan.
+
+Constructor digunakan saat membuat objek pelanggan.
+
+📌 Kode yang menerapkan Class, Object, dan Constructor:
+
+java
+// Abstract class sebagai dasar pelanggan
+abstract class PelangganBase {
+    public PelangganBase(String nama, String alamat, int nomorTelepon, int jumlahGalon) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.nomorTelepon = nomorTelepon;
+        this.jumlahGalon = jumlahGalon;
+    }
+}
+
+// Membuat objek pelanggan
+PelangganBase pelanggan = new PelangganReguler("Rifaldi", "Jakarta", 123456789, 5);
+✔ Letak dalam kode: Di dalam PelangganBase dan tambahPelanggan().
+
+5. POLIMORFISME
+📌 Cara kerja:
+
+Memungkinkan subclass mengubah metode dari superclass agar memiliki perilaku unik.
+
+jenisPelanggan() di-override oleh PelangganReguler dan PelangganPremium.
+
+📌 Kode yang menerapkan Polimorfisme:
+
+java
+class PelangganReguler extends PelangganBase {
+    @Override
+    void jenisPelanggan() {
+        System.out.println("Jenis: Pelanggan Reguler");
+    }
+}
+
+class PelangganPremium extends PelangganBase {
+    @Override
+    void jenisPelanggan() {
+        System.out.println("Jenis: Pelanggan Premium");
+    }
+}
+✔ Letak dalam kode: Saat mendefinisikan jenisPelanggan() di subclass.
+
+6. ABSTRACT CLASS
+📌 Cara kerja:
+
+Tidak bisa dibuat objek langsung, hanya bisa digunakan oleh subclass.
+
+Memiliki abstract method yang harus diimplementasikan oleh subclass.
+
+📌 Kode yang menerapkan Abstract Class:
+
+java
+abstract class PelangganBase {
+    abstract void jenisPelanggan();
+}
+✔ Letak dalam kode: PelangganBase sebagai superclass.
+
+7. FINAL KEYWORD
+📌 Cara kerja:
+
+Variabel final tidak bisa diubah setelah objek dibuat.
+
+Metode final tidak bisa dioverride oleh subclass.
+
+📌 Kode yang menerapkan Final Keyword:
+
+java
+final String nama;
+final String alamat;
+✔ Letak dalam kode: PelangganBase untuk memastikan nama dan alamat tidak bisa diubah.
+
+8. INTERFACE
+📌 Cara kerja:
+
+Menentukan metode wajib yang harus ada dalam semua kelas pelanggan.
+
+tampilkanData() harus diimplementasikan oleh setiap kelas yang menggunakan interface.
+
+📌 Kode yang menerapkan Interface:
+
+java
+interface PelangganInterface {
+    void tampilkanData();
+}
+✔ Letak dalam kode: PelangganInterface sebagai kontrak untuk pelanggan.
+
+9. STATIC KEYWORD
+📌 Cara kerja:
+
+Variabel statis bersifat global dan digunakan untuk menghitung jumlah pelanggan.
+
+Tidak perlu membuat objek baru untuk mengaksesnya.
+
+📌 Kode yang menerapkan Static Keyword:
+
+java
+static int totalPelanggan = 0;
+
+// Saat pelanggan dibuat, jumlah bertambah
+totalPelanggan++;
+✔ Letak dalam kode: PelangganBase untuk menghitung jumlah pelanggan.
+
+10. EXCEPTION HANDLING
+📌 Cara kerja:
+
+Mencegah error saat pengguna memasukkan input yang tidak valid.
+
+Jika pengguna memasukkan huruf saat diminta angka, program tidak berhenti, tetapi meminta input ulang.
+
+📌 Kode yang menerapkan Exception Handling:
+
+java
+static int getValidIntegerInput(String prompt) {
+    int number;
+    while (true) {
+        System.out.print(prompt);
+        if (scanner.hasNextInt()) {
+            number = scanner.nextInt();
+            scanner.nextLine();
+            return number;
+        } else {
+            System.out.println("Masukkan angka yang valid! Coba lagi.");
+            scanner.nextLine();
+        }
+    }
+}
+✔ Letak dalam kode: AntarGalonApp untuk memastikan input angka valid.
+
+Kesimpulan
+✅ Urutan proses dalam program berdasarkan OOP: 1️⃣ Encapsulation → private memastikan data pelanggan tidak bisa diubah langsung. 2️⃣ Exception Handling → getValidIntegerInput() menangani input tidak valid. 3️⃣ Inheritance → PelangganReguler dan PelangganPremium mewarisi PelangganBase. 4️⃣ Abstract Class → PelangganBase tidak bisa dibuat objek langsung. 5️⃣ Polimorfisme → jenisPelanggan() di-override dengan perilaku unik. 6️⃣ Final Keyword → nama dan alamat tidak bisa diubah setelah dibuat. 7️⃣ Interface → PelangganInterface memastikan semua pelanggan memiliki tampilkanData(). 8️⃣ Static Keyword → totalPelanggan menghitung jumlah pelanggan tanpa perlu objek baru. 9️⃣ Program Berjalan → CRUD pelanggan dilakukan berdasarkan input pengguna. 🔟 Keluar Program → Jika pengguna memilih "Keluar", program berhenti.
